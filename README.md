@@ -83,7 +83,7 @@ Before using the exporter, ensure the following dependencies are installed:
 ### 3. Run the image
 
    ```bash
-   podman run -d --name cephfs-top-exporter -p 8000:8000 -v ./ceph.conf:/etc/ceph/ceph.conf:Z -v /etc/ceph/ceph.client.fstop.keyring:/etc/ceph/ceph.client.fstop.keyring:Z localhost/cephfs-top-exporter:v1.0   
+   podman run -d --name cephfs-top-exporter -p 8000:8000 -v ./ceph.conf:/etc/ceph/ceph.conf:Z -v ./ceph.client.fstop.keyring:/etc/ceph/ceph.client.fstop.keyring:Z localhost/cephfs-top-exporter:v1.0   
 #### Check that is exporting data
    curl http://localhost:8000 | grep cephfs_top
 
