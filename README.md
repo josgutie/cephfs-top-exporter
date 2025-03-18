@@ -37,7 +37,7 @@ Before using the exporter, ensure the following dependencies are installed:
 
 ### 3. Configure the CephFS top utility
 
-#### Follow the instructions stated in the following link [CephFS Top Utility](https://docs.ceph.com/en/reef/cephfs/cephfs-top/)
+#### Follow the instructions stated in the following link https://docs.ceph.com/en/reef/cephfs/cephfs-top/
 
 ### 4. Configure a systemd daemon to run the cephfs-top-exporter
 
@@ -78,7 +78,7 @@ Before using the exporter, ensure the following dependencies are installed:
    - The files needed are:
      - ceph.conf
      - ceph.client.fstop.keyring
-   - For more details review the following link [CephFS Top Utility](https://docs.ceph.com/en/reef/cephfs/cephfs-top/)
+   - For more details review the following link https://docs.ceph.com/en/reef/cephfs/cephfs-top/
 
 ### 3. Run the image
 
