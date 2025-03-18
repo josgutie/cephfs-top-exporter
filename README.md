@@ -6,7 +6,7 @@ This project is a **CephFS Top Exporter** that collects performance metrics from
 - Enable CephFS stats https://docs.ceph.com/en/reef/cephfs/cephfs-top/
 - Collects real-time CephFS performance metrics.
 - Exposes the metrics through an HTTP server on a configurable port (default: `8000`).
-- Supports JSON-based data input for testing or export purposes.
+- Supports JSON-based data input for testing purposes.
 
 ## Prerequisites
 
@@ -40,6 +40,7 @@ Before using the exporter, ensure the following dependencies are installed:
 #### Follow the instructions stated in the following link [CephFS Top Utility](https://docs.ceph.com/en/reef/cephfs/cephfs-top/)
 
 ### 4. Configure a systemd daemon to run the cephfs-top-exporter
+
    ```bash   
     cat /etc/systemd/system/cephfs_top_exporter.service
     [Unit]
@@ -54,6 +55,7 @@ Before using the exporter, ensure the following dependencies are installed:
     WantedBy=multi-user.target
 
 ### 5. Add a Prometheus scraper job
+
    ```bash   
     grep -A7 cephfs-top-exporter /etc/prometheus/prometheus.yml
     - job_name: 'cephfs-top-exporter'
@@ -65,7 +67,9 @@ Before using the exporter, ensure the following dependencies are installed:
     honor_labels: true    
 
 ## Running as a container
+
 ### 1. Clone the repository project and build the image
+
    ```bash
    git clone https://github.com/josgutie/cephfs-top-exporter.git
    podman build . -t cephfs-top-exporter:v1.0
@@ -77,6 +81,7 @@ Before using the exporter, ensure the following dependencies are installed:
    - For more details review the following link [CephFS Top Utility](https://docs.ceph.com/en/reef/cephfs/cephfs-top/)
 
 ### 3. Run the image
+
    ```bash
    podman run -d --name cephfs-top-exporter -p 8000:8000 -v ./ceph.conf:/etc/ceph/ceph.conf:Z -v /etc/ceph/ceph.client.fstop.keyring:/etc/ceph/ceph.client.fstop.keyring:Z localhost/cephfs-top-exporter:v1.0   
 #### Check that is exporting data
